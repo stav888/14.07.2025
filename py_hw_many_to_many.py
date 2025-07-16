@@ -1,3 +1,7 @@
+"""
+https://github.com/pythonai200425/14.07.2025/blob/master/many_to_many.sql
+"""
+
 import sqlite3
 
 connection = sqlite3.connect('school.db')
