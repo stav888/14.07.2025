@@ -69,5 +69,6 @@ WHERE passwords.user_id IS NULL;
 for row in cursor.fetchall():
     print(dict(row))
 
-# Close the connection
+# Commit the changes and close the connection
+conn.commit()
 conn.close()
