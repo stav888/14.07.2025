@@ -1,4 +1,4 @@
-CREATE TABLE citizens (
+=CREATE TABLE citizens (
     citizen_id INTEGER PRIMARY KEY,
     name TEXT NOT NULL
 );
@@ -58,7 +58,7 @@ FROM citizens c
 LEFT JOIN subscriptions s ON c.citizen_id = s.citizen_id
 WHERE s.citizen_id IS NULL;
 
--- 5. הצג חברות שאין להן אף מנוי
+-- הצג חברות שאין להן אף מנוי
 SELECT ct.company_id, ct.name AS company_name
 FROM cable_tv ct
 LEFT JOIN subscriptions s ON ct.company_id = s.company_id
