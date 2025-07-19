@@ -4,7 +4,6 @@ import sqlite3
 if os.path.exists('company.db'):
     os.remove('company.db')
 
-# Connect to the SQLite database
 conn = sqlite3.connect('company.db')
 conn.row_factory = sqlite3.Row
 cursor = conn.cursor()
