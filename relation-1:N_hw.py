@@ -1,7 +1,6 @@
 import os
 import sqlite3
 
-# Remove the existing database file if it exists
 if os.path.exists('company.db'):
     os.remove('company.db')
 
@@ -10,7 +9,6 @@ conn = sqlite3.connect('company.db')
 conn.row_factory = sqlite3.Row
 cursor = conn.cursor()
 
-# Use executescript to run multiple SQL statements at once
 cursor.executescript('''
 CREATE TABLE departments (
     department_id INTEGER PRIMARY KEY,
@@ -41,7 +39,6 @@ SELECT e.employee_id, e.name AS employee_name, d.name AS department_name
 FROM employees e
 LEFT JOIN departments d ON e.department_id = d.department_id
 ''')
-
 for row in cursor.fetchall():
     print(dict(row))
 
@@ -53,7 +50,6 @@ LEFT JOIN employees e ON d.department_id = e.department_id
 GROUP BY d.department_id, d.name
 ORDER BY employee_count DESC
 ''')
-
 for row in cursor.fetchall():
     print(dict(row))
 
@@ -64,7 +60,6 @@ FROM employees e
 LEFT JOIN departments d ON e.department_id = d.department_id
 WHERE e.department_id IS NULL
 ''')
-
 for row in cursor.fetchall():
     print(dict(row))
 
@@ -75,10 +70,8 @@ FROM departments d
 LEFT JOIN employees e ON d.department_id = e.department_id
 WHERE e.employee_id IS NULL
 ''')
-
 for row in cursor.fetchall():
     print(dict(row))
 
-# Commit the changes and close the connection
 conn.commit()
 conn.close()
