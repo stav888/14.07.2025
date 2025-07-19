@@ -1,14 +1,14 @@
-=CREATE TABLE citizens (
+CREATE TABLE IF NOT EXISTS citizens (
     citizen_id INTEGER PRIMARY KEY,
     name TEXT NOT NULL
 );
 
-CREATE TABLE cable_tv (
+CREATE TABLE IF NOT EXISTS cable_tv (
     company_id INTEGER PRIMARY KEY,
     name TEXT NOT NULL
 );
 
-CREATE TABLE subscriptions (
+CREATE TABLE IF NOT EXISTS subscriptions (
     citizen_id INTEGER,
     company_id INTEGER,
     PRIMARY KEY (citizen_id, company_id),
